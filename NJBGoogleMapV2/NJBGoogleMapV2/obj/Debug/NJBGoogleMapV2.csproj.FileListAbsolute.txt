@@ -1,0 +1,7 @@
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\bin\Debug\NJBGoogleMapV2.dll
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\bin\Debug\NJBGoogleMapV2.pdb
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\obj\Debug\NJBGoogleMapV2.NJBGoogleMap.resources
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\obj\Debug\NJBGoogleMapV2.csproj.GenerateResource.Cache
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\obj\Debug\NJBGoogleMapV2.dll
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\obj\Debug\NJBGoogleMapV2.pdb
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\obj\Debug\NJBGoogleMapV2.csprojResolveAssemblyReference.cache

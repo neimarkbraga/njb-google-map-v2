@@ -1,0 +1,11 @@
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\bin\Debug\NJBGoogleMapV2_Tester.exe.config
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\bin\Debug\NJBGoogleMapV2_Tester.exe
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\bin\Debug\NJBGoogleMapV2_Tester.pdb
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\bin\Debug\NJBGoogleMapV2.dll
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\bin\Debug\NJBGoogleMapV2.pdb
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.Form1.resources
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.Properties.Resources.resources
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.csproj.GenerateResource.Cache
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.exe
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.pdb
+C:\Users\neima.NEIMARK-B5P1F25\Documents\Visual Studio 2013\Projects\NJBGoogleMapV2_Tester\NJBGoogleMapV2_Tester\obj\Debug\NJBGoogleMapV2_Tester.csprojResolveAssemblyReference.cache
