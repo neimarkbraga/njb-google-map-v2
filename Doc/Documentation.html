@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Google Maps Documentation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <style>
+            .class{
+                color: green;
+            }
+            .datatype{
+                color: darkblue;
+            }
+            td{
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h3>NJBGoogleMapV2 Documentation <br /> <small>By: Neimark Junsay Braga</small></h3>
+            <hr />
+            <br />
+
+            <div class="container-fluid">
+                <h1>Classes</h1>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>MapLatLng</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <h3>Constructor</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="class">MapLatLng</span>(<span class="datatype">double</span> lat, <span class="datatype">double</span> lng)</th>
+                                            <td>Object for coordinates.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+
+                                <h3>Properties</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="datatype">double</span> lat</th>
+                                            <td>Latitude</td>
+                                        </tr>
+                                        <tr>
+                                            <th><span class="datatype">double</span> lng</th>
+                                            <td>Longitude</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>MapHouseColor</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <h3>Constructor</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="class">MapHouseColor</span>(<span class="datatype">string</span> primary, <span class="datatype">string</span> Secondary)</th>
+                                            <td>Object for the color of house.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+
+                                <h3>Properties</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="datatype">string</span> primary</th>
+                                            <td>Dominant Color</td>
+                                        </tr>
+                                        <tr>
+                                            <th> <span class="datatype">string</span> secondary</th>
+                                            <td>Accent Color</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>MapType <span class="label label-info">static</span></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <h3>Properties</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="datatype">readonly string</span> Roadmap</th>
+                                            <td>Roadmap Type</td>
+                                        </tr>
+                                        <tr>
+                                            <th> <span class="datatype">readonly string</span> Satellite</th>
+                                            <td>Satellite Type</td>
+                                        </tr>
+                                        <tr>
+                                            <th> <span class="datatype">readonly string</span> Hybrid</th>
+                                            <td>Hybrid Type</td>
+                                        </tr>
+                                        <tr>
+                                            <th> <span class="datatype">readonly string</span> Terrain</th>
+                                            <td>Terrain Type</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>MapExtraTools <span class="label label-info">static</span></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <h3>Methods</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th>PickColor()</th>
+                                            <td>
+                                                <b>Returns: <span class="datatype">string</span></b><br />
+                                                Opens .Net Color Picker and returns the hex value of color.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>NJBGoogleMap</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <h3>Properties</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th><span class="datatype">string</span> GoogleMapUrlAPIkey</th>
+                                            <td>API key for Google Maps</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+
+                                <h3>Event Handlers</h3>
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr>
+                                            <th>MapLoadSuccess</th>
+                                            <td><b>Args: None</b><br />
+                                                Triggers when map was successfully loaded.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapLoadError</th>
+                                            <td><b>Args: None</b><br />
+                                                Triggers when map was not loaded successfully; Triggers when no connection.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapClick</th>
+                                            <td><b>Args: <span class="class">MapLatLng</span> LatLng</b><br />
+                                                Triggers when map was clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapRightClick</th>
+                                            <td><b>Args: <span class="class">MapLatLng</span> LatLng</b><br />
+                                                Triggers when map was right clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapMarkerClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a marker was clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapMarkerRightClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a marker was right clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapHouseClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a house was clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapHouseRightClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a house was right clicked.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapPolygonClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a polygon was clicked. Works only if polygon is clickable.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapPolygonRightClick</th>
+                                            <td><b>Args: <span class="datatype">string</span> ID</b><br />
+                                                Triggers when a polygon was right clicked. Works only if polygon is clickable.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>MapDrawingComplete</th>
+                                            <td><b>Args: <span class="class">MapLatLng[]</span> Path</b><br />
+                                                Triggers when a drawing was closed or completed.
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                                <hr />
+
+                                <h3>Methods</h3>
+                                <div class="container-fluid">
+                                    <h3><small>Load</small></h3>
+                                    <div class="container-fluid">
+                                        <div class="container-fluid">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>ReloadMap()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Reloads map. Triggers "MapLoadSuccess" event.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ShowLoading(<span class="datatype">string</span> Title)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Displays loading page with title.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HideLoading()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Hides loading page.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h3><small>Map</small></h3>
+                                    <div class="container-fluid">
+                                        <div class="container-fluid">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>MapIsReady()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if map is ready.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMapCenter()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="class">MapLatLng</span></b><br />
+                                                        Gets the center of the map.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMapCenter(<span class="class">MapLatLng</span> LatLng)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets the center of the map.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMapType()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string</span></b><br />
+                                                        Gets the map type.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMapType(<span class="datatype">string</span> MapType)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets the map type. Recommend to use constants of "MapType" class.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>GetMapZoom()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">int</span></b><br />
+                                                        Gets the value of zoom of map.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>SetMapZoom(<span class="datatype">int</span> Zoom)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets the zoom of map.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h3><small>Marker</small></h3>
+                                    <div class="container-fluid">
+                                        <div class="container-fluid">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>CreateMarker(<span class="datatype">string</span> ID, <span class="datatype">string</span> Title, <span class="class">MapLatLng</span> LatLng, <span class="datatype">bool</span> Draggable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Creates a marker in the map. If an ID already exists, the existing marker will be deleted and replaced by the new one created.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>MarkerExists(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if marker exists.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>MarkerVisible(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if marker is hidden or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HideMarker(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Hides marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ShowMarker(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Shows marker from hidden.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMarkerPosition(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="class">MapLatLng</span></b><br />
+                                                        Gets the position of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMarkerPosition(<span class="datatype">string</span> ID, <span class="class">MapLatLng</span> LatLng)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets position of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMarkerTitle(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string</span></b><br />
+                                                        Gets the title of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMarkerTitle(<span class="datatype">string</span> ID, <span class="datatype">string</span> Title)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets title of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeleteMarker(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes a marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeleteAllMarkers()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes all the exisiting markers.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMarkerDraggable(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if marker is draggable.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMarkerDraggable(<span class="datatype">string</span> ID, <span class="datatype">bool</span> Draggable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets marker to draggable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMarkerIcon(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string</span></b><br />
+                                                        Gets the Icon Filename of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetMarkerIcon(<span class="datatype">string</span> ID, <span class="datatype">string</span> Icon)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets Icon of marker.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetMarkerIDList()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string[]</span></b><br />
+                                                        Gets a list of IDs of markers that are in the map.
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h3><small>House</small></h3>
+                                    <div class="container-fluid">
+                                        <div class="container-fluid">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>CreateHouse(<span class="datatype">string</span> ID, <span class="datatype">string</span> Title, <span class="class">MapLatLng</span> LatLng, <span class="datatype">char</span> Label, <span class="class">MapHouseColor</span> Color, <span class="datatype">bool</span> Draggable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Creates house marker in map. If ID exists already, it would replace the old one.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>FitHousesToMap()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Makes the map focus to all houses in map.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HouseExists(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if house exists in the map.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HouseVisible(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if house is hidden or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HideHouse(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Hides house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ShowHouse(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Shows house from hidden
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHousePosition(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="class">MapLatLng</span></b><br />
+                                                        Gets position of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetHousePosition(<span class="datatype">string</span> ID, <span class="class">MapLatLng</span> LatLng)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets position of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHouseTitle(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string</span></b><br />
+                                                        Gets the title of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetHouseTitle(<span class="datatype">string</span> ID, <span class="datatype">string</span> Title)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets the title of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHouseLabel(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">char</span></b><br />
+                                                        Gets label of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetHouseLabel(<span class="datatype">string</span> ID, <span class="datatype">char</span> Label)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets label of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHouseColor(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="class">MapHouseColor</span></b><br />
+                                                        Gets color of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetHouseColor(<span class="datatype">string</span> ID, <span class="class">MapHouseColor</span> Color)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets color of house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeleteHouse(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes house.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeleteAllHouses()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes all houses.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHouseDraggable(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if house is draggable.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetHouseDraggable(<span class="datatype">string</span> ID, <span class="datatype">bool</span> Draggable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets house to draggable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SelectHouse(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Selects house; Works only on Select Mode.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeselectHouse(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deselects house; Works only on Select Mode.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HouseSelected(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if a house is selected during Select Mode.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetSelectMode()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if Select Mode is on or off.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetSelectMode(<span class="datatype">bool</span> Mode)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets Select Mode to true or false.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetSelectedHouseIDList()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string[]</span></b><br />
+                                                        Gets the selected list of IDs of houses during Select Mode.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHouseIDList()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string[]</span></b><br />
+                                                        Gets a list of IDs of all houses in the map.
+                                                    </td>
+                                                </tr>
+
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <h3><small>Polygon</small></h3>
+                                    <div class="container-fluid">
+                                        <div class="container-fluid">
+                                            <table class="table">
+                                                <tr>
+                                                    <th>CreatePolygon(<span class="datatype">string</span> ID, <span class="class">MapLatLng[]</span> Path, <span class="datatype">string</span> Color, <span class="datatype">double</span> Opacity, <span class="datatype">bool</span> Clickable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Creates polygon in map. If ID already exists, it will be replaced by new one.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetDrawingMode()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if Drawing Mode is on or off.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetDrawingMode(<span class="datatype">bool</span> Mode)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets Drawing Mode to true or false.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PolygonExists(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if polygon exists.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PolygonVisible(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if polygon is hidden or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>HidePolygon(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Hides polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ShowPolygon(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Shows polygon from hidden.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonPath(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="class">MapLatLng[]</span></b><br />
+                                                        Gets the path of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetPolygonPath(<span class="datatype">string</span> ID, <span class="class">MapLatLng[]</span> Path)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets the path of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonColor(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string</span></b><br />
+                                                        Gets the color of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetPolygonColor(<span class="datatype">string</span> ID, <span class="datatype">string</span> Color)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets color of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonOpacity(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">double</span></b><br />
+                                                        Gets opacity value of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetPolygonOpacity(<span class="datatype">string</span> ID, <span class="datatype">double</span> Opacity)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets opacity of polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonClickable(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if polygon is clickable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetPolygonClickable(<span class="datatype">string</span> ID, <span class="datatype">bool</span> Clickable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Sets polygon to clickable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonEditable(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if polygon is editable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>SetPolygonEditable(<span class="datatype">string</span> ID, <span class="datatype">bool</span> Editable)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        ets polygon to editable or not.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeletePolygon(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>DeleteAllPolygons()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">void</span></b><br />
+                                                        Deletes all polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>PolygonContainsLocation(<span class="datatype">string</span> ID, <span class="class">MapLatLng</span> LatLng)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">bool</span></b><br />
+                                                        Checks if a location is in the polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetHousesInPolygon(<span class="datatype">string</span> ID)</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string[]</span></b><br />
+                                                        Gets a list of IDs of houses inside the polygon.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GetPolygonIDList()</th>
+                                                    <td>
+                                                        <b>Returns: <span class="datatype">string[]</span></b><br />
+                                                        Gets all the IDs of polygons in map.
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <hr />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
