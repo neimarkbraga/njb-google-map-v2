@@ -25,7 +25,7 @@ namespace NJBGoogleMapV2_Tester
 
         private void njbGoogleMap1_MapLoadError(object sender, EventArgs e)
         {
-            
+
         }
 
         private void njbGoogleMap1_MapLoadSuccess(object sender, EventArgs e)
@@ -480,9 +480,21 @@ namespace NJBGoogleMapV2_Tester
             MessageBox.Show(icon);
         }
 
+
         private void setMarkerIconIDIconToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            njbGoogleMap1.SetMarkerIcon(LastMarkerRightClick, "");
+            string icon_path = @"D:\Pictures\5-51101_icon-map-pin-google-maps-icons-png.png";
+            njbGoogleMap1.SetMarkerIcon(LastMarkerRightClick, icon_path);
+        }
+
+        private void njbGoogleMap1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            njbGoogleMap1.ReloadMap();
         }
     }
 }

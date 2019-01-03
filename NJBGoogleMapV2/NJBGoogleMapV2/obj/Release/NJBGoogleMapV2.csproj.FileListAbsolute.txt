@@ -1,0 +1,6 @@
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\bin\Release\NJBGoogleMapV2.dll
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\bin\Release\NJBGoogleMapV2.pdb
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\obj\Release\NJBGoogleMapV2.NJBGoogleMap.resources
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\obj\Release\NJBGoogleMapV2.csproj.GenerateResource.Cache
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\obj\Release\NJBGoogleMapV2.dll
+D:\Documents\GitHub\njb-google-map-v2\NJBGoogleMapV2\NJBGoogleMapV2\obj\Release\NJBGoogleMapV2.pdb

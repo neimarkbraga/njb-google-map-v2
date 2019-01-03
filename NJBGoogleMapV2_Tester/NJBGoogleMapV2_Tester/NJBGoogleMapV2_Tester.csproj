@@ -47,8 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NJBGoogleMapV2">
-      <HintPath>..\..\Google Map\NJBGoogleMapV2\NJBGoogleMapV2\bin\Debug\NJBGoogleMapV2.dll</HintPath>
+    <Reference Include="NJBGoogleMapV2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NJBGoogleMapV2\NJBGoogleMapV2\bin\Debug\NJBGoogleMapV2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

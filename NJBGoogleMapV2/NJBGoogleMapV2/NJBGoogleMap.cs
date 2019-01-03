@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Web.Script.Serialization;
 
 namespace NJBGoogleMapV2
 {
@@ -25,13 +28,28 @@ namespace NJBGoogleMapV2
             if (MapLoadSuccess != null)
                 MapLoadSuccess(this, e);
         }
+        public void _MapLoadSuccess()
+        {
+            OnMapLoadSuccess(new EventArgs());
+        }
 
         //MapLoadError Event
         public event EventHandler MapLoadError;
         protected virtual void OnMapLoadError(EventArgs e)
         {
+            ShowLoading("<h2>Connection Error</h2>Please check your internet connection");
             if (MapLoadError != null)
                 MapLoadError(this, e);
+            Action LoadMap = () =>
+            {
+                System.Threading.Thread.Sleep(5000);
+                ReloadMap();
+            };
+            System.Threading.Tasks.Task.Factory.StartNew(LoadMap);
+        }
+        public void _MapLoadError()
+        {
+            OnMapLoadError(new EventArgs());
         }
 
         //MapClick
@@ -155,9 +173,8 @@ namespace NJBGoogleMapV2
                 LatLng.Add(new MapLatLng(Convert.ToDouble(val.Split(',')[0]), Convert.ToDouble(val.Split(',')[1])));
             }
             OnMapDrawingComplete(new MapDrawingCompleteEventArgs(LatLng.ToArray()));   
-        }
+        }        
         #endregion
-
         //Images
         #region
         private static string LoadingBackground = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAIAAACEzMqPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjY2IwZTg2MS0xMzJjLTU5NDAtOGYyMi01OTMyNGY3NGM5ODAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUI4QTdEQ0M1N0I4MTFFNkE5NkM4RkNDOUNGNUREMTciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUI4QTdEQ0I1N0I4MTFFNkE5NkM4RkNDOUNGNUREMTciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Y2NiMGU4NjEtMTMyYy01OTQwLThmMjItNTkzMjRmNzRjOTgwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOmNjYjBlODYxLTEzMmMtNTk0MC04ZjIyLTU5MzI0Zjc0Yzk4MCIv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";
@@ -228,12 +245,14 @@ namespace NJBGoogleMapV2
                     "SelectedColor: {primary: 'red', secondary: 'white'}," +
                     "UnSelectedColor: {primary: 'gray', secondary: 'white'}" +
                 "};" +
+                "function MapLoadSuccess() { setTimeout(function() { window.external._MapLoadSuccess(); }) }" +
+                "function MapLoadError() { window.external._MapLoadError(); }" +
                 "function ConvertLatLngToObject(latLng) {return {lat: latLng.lat(), lng: latLng.lng()} }" +
                 "function GetPathFromArray(Paths) {var result = []; Paths.forEach(function (path) {result.push(ConvertLatLngToObject(path)); }); return result; }" +
                 "function ConvertObjectToArray(obj) {return Object.keys(obj).map(function(k) { return obj[k] }); }" +
                 "function GetListID(obj) {return Object.keys(obj).map(function(k) { return obj[k].id }); }" +
                 "function MakeHousePin(label, pincolor, itemcolor) {var c = document.createElement(\"canvas\"); c.width = 40; c.height = 50; var ctx = c.getContext(\"2d\"); var grd = ctx.createLinearGradient(30, 0, 0, 70); grd.addColorStop(0, pincolor); grd.addColorStop(1, \"white\"); ctx.beginPath(); ctx.arc(20, 20, 20, 0, 2 * Math.PI); ctx.moveTo(35, 33); ctx.lineTo(20, 50); ctx.lineTo(5, 33); ctx.fillStyle = \"#e6e6e6\"; ctx.fill(); ctx.strokeStyle = \"#666666\"; ctx.stroke(); ctx.beginPath(); ctx.arc(20, 20, 17, 0, 2 * Math.PI); ctx.fillStyle = grd; ctx.fill(); ctx.stroke(); if (label.trim() == \"\" || label == null) {ctx.beginPath(); ctx.moveTo(20, 6); ctx.lineTo(34, 16); ctx.lineTo(34, 20); ctx.lineTo(20, 10); ctx.lineTo(6, 20); ctx.lineTo(6, 16); ctx.fillStyle = itemcolor; ctx.fill(); ctx.beginPath(); ctx.moveTo(10, 20); ctx.lineTo(20, 13); ctx.lineTo(30, 20); ctx.lineTo(30, 30); ctx.lineTo(22.5, 30); ctx.lineTo(22.5, 23); ctx.lineTo(17.5, 23); ctx.lineTo(17.5, 30); ctx.lineTo(10, 30); ctx.fillStyle = itemcolor; ctx.fill(); } else {ctx.font = \"18px Arial\"; ctx.fillStyle = itemcolor; ctx.textAlign = \"center\"; ctx.fillText(label, 20, 27); } return c.toDataURL(); }" +
-                "function MapIsReady() {return (GoogleMap.Map != null); }" +
+                "function MapIsReady() {return (google && google.maps); }" +
                 "function GetMapCenter(){if(GoogleMap.Map != null) return {lat: GoogleMap.Map.getCenter().lat(), lng: GoogleMap.Map.getCenter().lng()}; return {lat: null, lng: null}; }" +
                 "function SetMapCenter(position) {if(GoogleMap.Map != null) GoogleMap.Map.setCenter(position); }" +
                 "function GetMapType(){if(GoogleMap.Map != null) return GoogleMap.Map.getMapTypeId(); return null; }" +
@@ -251,6 +270,8 @@ namespace NJBGoogleMapV2
                 "function DeleteMarker(id) {if(GoogleMap.Map != null) if(MarkerExists(id)){HideMarker(id); delete GoogleMap.Markers['M' + id]; } }" +
                 "function DeleteAllMarkers() {GetListID(GoogleMap.Markers).forEach(function (id) {DeleteMarker(id); }); }" +
                 "function GetMarkerDraggable(id) {if(GoogleMap.Map != null) if(MarkerExists(id)) return GoogleMap.Markers['M' + id].getDraggable(); return false; }" +
+                "function GetMarkerIcon(id) {if(GoogleMap.Map != null) if(MarkerExists(id)) return GoogleMap.Markers['M' + id]._icon || null; return null; }" +
+                "function SetMarkerIcon(id, icon, value) {if(GoogleMap.Map != null) if(MarkerExists(id)) { GoogleMap.Markers['M' + id].setIcon(value); GoogleMap.Markers['M' + id]._icon = icon; } }" +
                 "function SetMarkerDraggable(id, draggable) {if(GoogleMap.Map != null) if(MarkerExists(id)) {var animation = null; if (draggable) animation = google.maps.Animation.BOUNCE; GoogleMap.Markers['M' + id].setDraggable(draggable); GoogleMap.Markers['M' + id].setAnimation(animation); } }" +
                 "function CreateMarker(id, title, position, draggable) {if(GoogleMap.Map != null){if(MarkerExists(id)) GoogleMap.Markers['M' + id].setMap(null); var animation = null; if(draggable) animation = google.maps.Animation.BOUNCE; GoogleMap.Markers['M' + id] = new google.maps.Marker({position: {lat: parseFloat(position.lat), lng: parseFloat(position.lng) }, draggable: draggable, map: GoogleMap.Map, title: title, id: id, animation: animation }); GoogleMap.Markers['M' + id].addListener('click', function() { window.external._MapMarkerClick(this.id); }); GoogleMap.Markers['M' + id].addListener('rightclick', function() { window.external._MapMarkerRightClick(this.id); }); } }" +
                 "function FitHousesToMap() {if(GoogleMap.Map != null){var MyBounds = new google.maps.LatLngBounds(); var Houses = ConvertObjectToArray(GoogleMap.Houses); if(Houses.length > 0){Houses.forEach(function (house) {MyBounds.extend(house.getPosition()); }); GoogleMap.Map.fitBounds(MyBounds); } } }" +
@@ -313,6 +334,8 @@ namespace NJBGoogleMapV2
         private string HTMLDocument = "";
         private string GoogleMapURL = "";
         private string GoogleMapUrlAPIkey = "";
+        private string ValidSecretPassword = "a3U%-#jVr!unRy#yX%8Rt:,G'r:DK-H,WJ~6fE!kr9yG5~5.HnRgPpNdh;9pp^_-L9QeEqyk_w_";
+        private string InputSecretPassword = "";
         [Description("Javascript Library Url"), Category("Google Maps")]
         public string GoogleMapLibraryKey
         {
@@ -320,25 +343,15 @@ namespace NJBGoogleMapV2
             set
             {
                 GoogleMapUrlAPIkey = value;
-                string APIkey = "";
-                if (GoogleMapUrlAPIkey != "")
-                    APIkey = "key=" + GoogleMapUrlAPIkey + "&";
-                GoogleMapURL = "https://maps.googleapis.com/maps/api/js?" + APIkey + "libraries=places,drawing&callback=initAutocomplete";
-                HTMLDocument = "" +
-                    "<!DOCTYPE html>" +
-                    "<html lang=\"en\">" +
-                        "<head>" +
-                            "<meta charset=\"UTF-8\" />" +
-                            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
-                            "<title>Google Map</title>" +
-                            Style +
-                        "</head>" +
-                        "<body>" +
-                            Body +
-                            Script +
-                            "<script src=\"" + GoogleMapURL + "\" async defer></script>" +
-                        "</body>" +
-                    "</html>";
+                ReloadMap();
+            }
+        }
+        [Description("NJB Security"), Category("Google Maps")]
+        public string SecretPassword
+        {
+            get { return InputSecretPassword; }
+            set {
+                InputSecretPassword = value;
                 ReloadMap();
             }
         }
@@ -354,41 +367,73 @@ namespace NJBGoogleMapV2
         private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             
-            if (MapIsReady())
+            //if (MapIsReady())
+            //{
+            //    HideLoading();
+            //    OnMapLoadSuccess(new EventArgs());
+            //}
+            //else
+            //{
+            //    ShowLoading("<h2>Connection Error</h2>Please check your internet connection");
+            //    Action CheckGoogleMapLibrary = () =>
+            //    {
+            //        bool x = false;
+            //        while (!x)
+
+            //        {
+            //            System.Threading.Thread.Sleep(1000);
+            //            x = RemoteFileExists(GoogleMapURL);
+            //        }
+            //        ReloadMap();
+            //    };
+            //    System.Threading.Tasks.Task.Factory.StartNew(CheckGoogleMapLibrary);
+            //    OnMapLoadError(new EventArgs());
+            //}
+        }
+
+        private void NJBGoogleMap_Paint(object sender, PaintEventArgs e)
+        {
+            Action LoadMap = () =>
             {
-                HideLoading();
-                OnMapLoadSuccess(new EventArgs());
-            }
-            else
-            {
-                ShowLoading("<h2>Connection Error</h2>Please check your internet connection");
-                Action CheckGoogleMapLibrary = () =>
-                {
-                    bool x = false;
-                    while (!x)
-                    {
-                        System.Threading.Thread.Sleep(1000);
-                        x = RemoteFileExists(GoogleMapURL);
-                    }
-                    ReloadMap();
-                };
-                System.Threading.Tasks.Task.Factory.StartNew(CheckGoogleMapLibrary);
-                OnMapLoadError(new EventArgs());
-            }
+                System.Threading.Thread.Sleep(500);
+                ReloadMap();
+            };
+            System.Threading.Tasks.Task.Factory.StartNew(LoadMap);
         }
 
         //General
+        private string GetJSON(object obj)
+        {
+            return new JavaScriptSerializer().Serialize(obj);
+        }
         #region
+        private string GetImageBase64Url(Image image)
+        {
+            string type = "";
+            MemoryStream stream = new MemoryStream();
+            image.Save(stream, image.RawFormat);
+            byte[] image_bytes = stream.ToArray();
+            string base64 = Convert.ToBase64String(image_bytes);
+            if (ImageFormat.Jpeg.Equals(image.RawFormat)) type = "jpeg";
+            else if (ImageFormat.Png.Equals(image.RawFormat)) type = "png";
+            return "data:image/" + type + ";base64," + base64;
+        }
         private object GetObject(string code)
         {
             return WebBrowser.Document.InvokeScript("eval", new object[] { code });
         }
         private string GetStringVal(string code)
         {
-            if (code != null)
-                if (GetObject(code).ToString() != null)
-                    return GetObject(code).ToString();
-            return "";
+            try
+            {
+                if (code != null)
+                    if (GetObject(code).ToString() != null)
+                        return GetObject(code).ToString();
+                return "";
+            }
+            catch(Exception e) {
+                return "";
+            }
         }
         private bool GetBoolVal(string code)
         {
@@ -441,7 +486,33 @@ namespace NJBGoogleMapV2
         #region
         public void ReloadMap()
         {
-            WebBrowser.DocumentText = HTMLDocument;
+            if (InputSecretPassword != ValidSecretPassword) WebBrowser.DocumentText = "<h4>Invalid Secret Password.</h4>";
+            else if (GoogleMapUrlAPIkey == "") WebBrowser.DocumentText = "<h4>Google Maps API Key is required.</h4>";
+            else
+            {
+                try
+                {
+                    string APIkey = "key=" + GoogleMapUrlAPIkey + "&";
+                    GoogleMapURL = "https://maps.googleapis.com/maps/api/js?" + APIkey + "libraries=places,drawing&callback=initAutocomplete";
+                    HTMLDocument = "" +
+                        "<!DOCTYPE html>" +
+                        "<html lang=\"en\">" +
+                            "<head>" +
+                                "<meta charset=\"UTF-8\" />" +
+                                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
+                                "<title>Google Map</title>" +
+                                Style +
+                            "</head>" +
+                            "<body>" +
+                                Body +
+                                Script +
+                                "<script src=\"" + GoogleMapURL + "\" onload=\"MapLoadSuccess()\" onerror=\"MapLoadError()\" async defer></script>" +
+                            "</body>" +
+                        "</html>";
+                    WebBrowser.DocumentText = HTMLDocument;
+                }
+                catch (Exception e) { }
+            }
         }
         public void ShowLoading(string Title)
         {
@@ -562,6 +633,22 @@ namespace NJBGoogleMapV2
             string eTitle = EscapeString(Title);
             EvaluateScript("CreateMarker('" + ID + "', '" + eTitle + "', " + LatLng.ToString() + ", " + GetBoolString(Draggable) + ");");
         }
+        public string GetMarkerIcon(string ID)
+        {
+            ValidateID(ID);
+            return GetStringVal("GetMarkerIcon('" + ID + "');");
+        }
+        public void SetMarkerIcon(string ID, string icon)
+        {
+            // icon = original
+            // value = converted for rendering
+            string value = icon;
+            ValidateID(ID);
+            if (icon != "" && File.Exists(icon)) value = GetImageBase64Url(Image.FromFile(icon));
+            EvaluateScript("SetMarkerIcon("+GetJSON(ID)+", "+GetJSON(icon)+", "+GetJSON(value)+");");
+        }
+
+
         #endregion
         //Houses
         #region
@@ -702,6 +789,7 @@ namespace NJBGoogleMapV2
         }
         #endregion
         //Polygon
+        #region
         public bool GetDrawingMode()
         {
             return GetBoolVal("GoogleMap.DrawingMode;");
@@ -845,7 +933,7 @@ namespace NJBGoogleMapV2
             stringvar += "]";
             EvaluateScript("CreatePolygon('" + ID + "', " + stringvar + ", '" + Color + "', " + Opacity + ", " + GetBoolString(Clickable) + ");");
         }
-
+        #endregion
     }
 
     public class MapLatLng
